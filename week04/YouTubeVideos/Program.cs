@@ -6,78 +6,50 @@ class Program
     static void Main(string[] args)
     {
         // Create the first video
-        Video video1 = new Video(
-            "Introduction to C#",
-            "John Smith",
-            600
-        );
+        Video video1 = new Video("Learning C#", "John Smith", 600);
 
-        video1.AddComment(new Comment("Mary", "Great explanation!"));
+        video1.AddComment(new Comment("Alice", "Great explanation!"));
         video1.AddComment(new Comment("David", "This helped me understand C#."));
-        video1.AddComment(new Comment("Peter", "Looking forward to more videos!"));
+        video1.AddComment(new Comment("Mary", "Thanks for sharing!"));
 
         // Create the second video
-        Video video2 = new Video(
-            "Learning HTML and CSS",
-            "Sarah Johnson",
-            850
-        );
+        Video video2 = new Video("Introduction to HTML", "Sarah Johnson", 450);
 
-        video2.AddComment(new Comment("Michael", "Very informative."));
-        video2.AddComment(new Comment("Grace", "I learned a lot."));
-        video2.AddComment(new Comment("Daniel", "Thanks for sharing!"));
-        video2.AddComment(new Comment("James", "Please make another tutorial."));
+        video2.AddComment(new Comment("Peter", "Very useful tutorial."));
+        video2.AddComment(new Comment("Grace", "I learned something new."));
+        video2.AddComment(new Comment("James", "Please make more videos."));
 
         // Create the third video
-        Video video3 = new Video(
-            "Understanding Python",
-            "David Brown",
-            720
-        );
+        Video video3 = new Video("CSS for Beginners", "Michael Brown", 720);
 
-        video3.AddComment(new Comment("Alice", "Excellent lesson."));
-        video3.AddComment(new Comment("Samuel", "Python is interesting."));
-        video3.AddComment(new Comment("Esther", "This was easy to follow."));
+        video3.AddComment(new Comment("Emma", "Excellent lesson."));
+        video3.AddComment(new Comment("Daniel", "The examples were helpful."));
+        video3.AddComment(new Comment("Sophia", "I enjoyed this video."));
 
-        // Create the fourth video
-        Video video4 = new Video(
-            "Introduction to Web Development",
-            "Mary Wilson",
-            950
-        );
+        // Store videos in a list
+        List<Video> videos = new List<Video>();
 
-        video4.AddComment(new Comment("Joseph", "Very helpful content."));
-        video4.AddComment(new Comment("Linda", "I enjoyed this tutorial."));
-        video4.AddComment(new Comment("Robert", "Keep up the good work!"));
-        video4.AddComment(new Comment("Paul", "Looking forward to the next one."));
+        videos.Add(video1);
+        videos.Add(video2);
+        videos.Add(video3);
 
-        // Store all videos in a list
-        List<Video> videos = new List<Video>
-        {
-            video1,
-            video2,
-            video3,
-            video4
-        };
-
-        // Display each video and its comments
+        // Display video information and comments
         foreach (Video video in videos)
         {
+            Console.WriteLine("--------------------------------");
             Console.WriteLine($"Title: {video.GetTitle()}");
             Console.WriteLine($"Author: {video.GetAuthor()}");
             Console.WriteLine($"Length: {video.GetLength()} seconds");
-            Console.WriteLine($"Number of comments: {video.GetNumberOfComments()}");
+            Console.WriteLine($"Number of Comments: {video.GetCommentCount()}");
 
-            Console.WriteLine("\nComments:");
+            Console.WriteLine("Comments:");
 
             foreach (Comment comment in video.GetComments())
             {
-                Console.WriteLine(
-                    $"{comment.GetCommenterName()}: {comment.GetCommentText()}"
-                );
+                Console.WriteLine(comment.GetComment());
             }
 
-            Console.WriteLine("\n-----------------------------------\n");
+            Console.WriteLine();
         }
     }
 }
