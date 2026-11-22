@@ -15,10 +15,10 @@ public class Address
 
     public bool IsInUSA()
     {
-        return _country.Trim().ToUpper() == "USA";
+        return _country.ToLower() == "usa";
     }
 
-    public string GetFullAddress()
+    public string GetAddress()
     {
         return $"{_street}\n{_city}, {_state}\n{_country}";
     }
